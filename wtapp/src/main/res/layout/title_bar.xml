@@ -1,0 +1,25 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/accent_1"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="55dip"
+        android:gravity="center_vertical">
+
+
+        <TextView
+
+            android:id="@+id/tv_center"
+            style="@style/TitleBar_center"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="@string/select_app"
+            android:textSize="20sp"
+            android:textStyle="normal" />
+    </RelativeLayout>
+
+</LinearLayout>

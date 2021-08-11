@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <!---->
+    <color name="bgdddddd">#dddddd</color>
+    <color name="bg_f0f0f0">#e0e0e0</color>
+    <color name="accent_1">#ff29549f</color>
+    <color name="colorTextPrimary">#FFFFFF</color>
+    <color name="black">#000000</color>
+
+    <color name="white">#ffffff</color>
+    <color name="user_center_blue">#1274c7</color>
+    <color name="grey_e0e0e0">#e0e0e0</color>
+    <color name="lines_e0e0e0">#e0e0e0</color>
+
+    <color name="grey_eaeaea">#eaeaea</color>
+    <color name="grey_d3d3d3">#d3d3d3</color>
+    <!--扫一扫-->
+    <color name="contents_text">#ff000000</color>
+    <color name="encode_view">#ffffffff</color>
+    <color name="possible_result_points">#c0ffbd21</color> <!-- Android standard ICS color -->
+    <color name="result_minor_text">#ffc0c0c0</color>
+    <color name="result_points">#c099cc00</color> <!-- Android standard ICS color -->
+    <color name="result_text">#ffffffff</color>
+    <color name="result_view">#b0000000</color>
+    <color name="status_text">#ffffffff</color>
+    <color name="viewfinder_laser">#ffcc0000</color> <!-- Android standard ICS color -->
+    <color name="viewfinder_mask">#60000000</color>
+    <color name="comm_text">#FF83FA</color>
+    <color name="text_red">#FF0000</color>
+
+</resources>

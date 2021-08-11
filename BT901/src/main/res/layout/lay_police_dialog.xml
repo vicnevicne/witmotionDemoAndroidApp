@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/circle_corner_button"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/call_the_police"
+        android:textColor="@color/black"
+        android:textSize="20sp" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Minimum_value_of_X_axis"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/et_putXMin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/circle_corner_button"
+            android:hint="@string/Positive_and_negative_180_degrees"
+            android:inputType="text"
+            android:maxLength="5"
+            android:singleLine="true"
+            android:textColor="@color/black"
+            android:textColorHint="@color/bg_f0f0f0"
+            android:textSize="15sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/X_axis_maximum"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/et_putXMax"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/circle_corner_button"
+            android:hint="@string/Positive_and_negative_180_degrees"
+            android:inputType="text"
+            android:maxLength="5"
+            android:singleLine="true"
+            android:textColor="@color/black"
+            android:textColorHint="@color/bg_f0f0f0"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Minimum_value_of_Y_axis"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/et_putYMin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/circle_corner_button"
+            android:hint="@string/Positive_and_negative_180_degrees"
+            android:inputType="text"
+            android:maxLength="5"
+            android:singleLine="true"
+            android:textColor="@color/black"
+            android:textColorHint="@color/bg_f0f0f0"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Y_axis_maximum"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/et_putYMax"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/circle_corner_button"
+            android:hint="@string/Positive_and_negative_180_degrees"
+            android:inputType="text"
+            android:maxLength="5"
+            android:singleLine="true"
+            android:textColor="@color/black"
+            android:textColorHint="@color/bg_f0f0f0"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="@string/KeepTime"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/et_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/circle_corner_button"
+            android:hint="@string/Company"
+            android:inputType="number"
+            android:maxLength="10"
+            android:singleLine="true"
+            android:textColor="@color/black"
+            android:textColorHint="@color/bg_f0f0f0"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+
+        <RadioButton
+            android:id="@+id/rb_open"
+            android:layout_width="90dp"
+            android:layout_height="45dp"
+            android:background="@drawable/icon_open_nor"
+            android:button="@null" />
+
+        <RadioButton
+            android:id="@+id/rb_close"
+            android:layout_width="90dp"
+            android:layout_height="45dp"
+            android:background="@drawable/icon_close_press"
+            android:button="@null"
+            android:checked="true" />
+
+    </RadioGroup>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/bt_abolish"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:background="@drawable/button_gray"
+            android:text="@string/abolish"
+            android:textColor="@color/white" />
+
+        <Button
+            android:id="@+id/bt_save"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="50dp"
+            android:background="@drawable/button_blue"
+            android:text="@string/end"
+            android:textColor="@color/white" />
+
+
+    </LinearLayout>
+</LinearLayout>
