@@ -17,9 +17,9 @@ import java.util.List;
 public class ExLisViewAdapter extends BaseExpandableListAdapter {
 
     private Context context;
-    private List<GroupBeen> groupList = new ArrayList<>();
+    private List<MenuGroup> groupList;
 
-    public ExLisViewAdapter(Context context, List<GroupBeen> groups) {
+    public ExLisViewAdapter(Context context, List<MenuGroup> groups) {
         this.context = context;
         this.groupList = groups;
     }
@@ -64,10 +64,10 @@ public class ExLisViewAdapter extends BaseExpandableListAdapter {
     public View getGroupView(int i, boolean b, View view, ViewGroup viewGroup) {
         view = LayoutInflater.from(context).inflate(R.layout.lay_group_item, viewGroup, false);
         TextView tvName = (TextView) view.findViewById(R.id.tvName);
-        GroupBeen groupBeen = groupList.get(i);
-        tvName.setText(groupBeen.getName());
+        MenuGroup menuGroup = groupList.get(i);
+        tvName.setText(menuGroup.getName());
         ImageView arrow = (ImageView) view.findViewById(R.id.iv_arrow);
-        if (groupBeen.getChildList().size() > 0) {
+        if (menuGroup.getChildList().size() > 0) {
             arrow.setVisibility(View.VISIBLE);
         } else {
             arrow.setVisibility(View.INVISIBLE);
@@ -85,8 +85,8 @@ public class ExLisViewAdapter extends BaseExpandableListAdapter {
         view = LayoutInflater.from(context).inflate(R.layout.lay_rv_item, viewGroup, false);
         TextView tvName = (TextView) view.findViewById(R.id.tvName);
         if (groupList.get(i).getChildList() != null) {
-            ChildBeen childBeen = groupList.get(i).getChildList().get(i1);
-            tvName.setText(childBeen.getName());
+            MenuItem menuItem = groupList.get(i).getChildList().get(i1);
+            tvName.setText(menuItem.getName());
         }
 
         return view;

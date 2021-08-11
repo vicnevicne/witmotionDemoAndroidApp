@@ -2,7 +2,7 @@ package com.bt901.dialog;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,7 +21,7 @@ import com.bt901.R;
  */
 public class AddressDialog extends BDialog implements View.OnClickListener {
 
-    EditText startName;
+    EditText valueField;
 
 
     private String value;
@@ -37,11 +37,11 @@ public class AddressDialog extends BDialog implements View.OnClickListener {
     }
 
     public void showKeybard() {
-        startName.setFocusable(true);
-        startName.setFocusableInTouchMode(true);
-        startName.requestFocus();
-        InputMethodManager imm = (InputMethodManager) startName.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
-        imm.showSoftInput(startName, 0);
+        valueField.setFocusable(true);
+        valueField.setFocusableInTouchMode(true);
+        valueField.requestFocus();
+        InputMethodManager imm = (InputMethodManager) valueField.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+        imm.showSoftInput(valueField, 0);
     }
 
 
@@ -49,11 +49,11 @@ public class AddressDialog extends BDialog implements View.OnClickListener {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.lay_address_dialog, container, false);
-        startName = (EditText) view.findViewById(R.id.et_putStart);
-        Button sure = (Button) view.findViewById(R.id.bt_save);
-        Button abli = (Button) view.findViewById(R.id.bt_abolish);
-        sure.setOnClickListener(this);
-        abli.setOnClickListener(this);
+        valueField = view.findViewById(R.id.value_field);
+        Button okBtn = view.findViewById(R.id.bt_ok);
+        Button cancelBtn = view.findViewById(R.id.bt_cancel);
+        okBtn.setOnClickListener(this);
+        cancelBtn.setOnClickListener(this);
         return view;
     }
 
@@ -75,8 +75,8 @@ public class AddressDialog extends BDialog implements View.OnClickListener {
     @Override
     public void onClick(View view) {
         int i = view.getId();
-        if (i == R.id.bt_save) {
-            value = startName.getText().toString();
+        if (i == R.id.bt_ok) {
+            value = valueField.getText().toString();
             if (value == null || value.equals("")) {
                 Toast.makeText(getContext(), R.string.data_null, Toast.LENGTH_SHORT).show();
                 return;
@@ -85,7 +85,7 @@ public class AddressDialog extends BDialog implements View.OnClickListener {
                 addressDialogCallBack.save(value);
             }
             dismiss();
-        } else if (i == R.id.bt_abolish) {
+        } else if (i == R.id.bt_cancel) {
             if (addressDialogCallBack != null) {
                 addressDialogCallBack.back();
             }

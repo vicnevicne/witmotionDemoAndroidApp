@@ -1,13 +1,13 @@
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion 28
-    buildToolsVersion '28.0.3'
+    compileSdkVersion 31
+    buildToolsVersion '31.0.0'
 
     defaultConfig {
-//        applicationId "com.Billiard"
         minSdkVersion 18
-        targetSdkVersion 28
+        targetSdkVersion 31
+        resConfigs "en"
     }
 
     buildTypes {
@@ -21,6 +21,6 @@ android {
 dependencies {
     implementation files('libs/CH34xUARTDriver.jar')
     implementation files('libs/MPAndroidChart-v3.0.2.jar')
-    implementation 'com.android.support:design:28.0.0'
-    implementation project(':WTFile')
+    implementation 'com.google.android.material:material:1.4.0'
+    implementation project(':Util')
 }

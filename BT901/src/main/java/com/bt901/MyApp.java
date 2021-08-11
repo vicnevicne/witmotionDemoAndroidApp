@@ -6,7 +6,8 @@ import cn.wch.ch34xuartdriver.CH34xUARTDriver;
 
 public class MyApp extends Application {
 
-
-    public static CH34xUARTDriver driver;// 需要将CH34x的驱动类写在APP类下面，使得帮助类的生命周期与整个应用程序的生命周期是相同的
+    // The CH34x driver class needs to be under the APP class
+    // so that the life cycle of the helper class is the same as the life cycle of the entire application
+    public static CH34xUARTDriver driver;
 
 }

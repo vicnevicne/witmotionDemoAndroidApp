@@ -1,7 +1,7 @@
 package com.bt901.dialog;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,17 +30,17 @@ public class AlarmDialog extends BDialog implements View.OnClickListener, RadioG
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.lay_police_dialog, container, false);
-        Button sure = (Button) view.findViewById(R.id.bt_save);
-        Button abli = (Button) view.findViewById(R.id.bt_abolish);
-        RadioGroup radioGroup = (RadioGroup) view.findViewById(R.id.radioGroup);
-        open = (RadioButton) view.findViewById(R.id.rb_open);
-        close = (RadioButton) view.findViewById(R.id.rb_close);
+        Button sure = view.findViewById(R.id.bt_ok);
+        Button abli = view.findViewById(R.id.bt_cancel);
+        RadioGroup radioGroup = view.findViewById(R.id.radioGroup);
+        open = view.findViewById(R.id.rb_open);
+        close = view.findViewById(R.id.rb_close);
 
-        xMin = (EditText) view.findViewById(R.id.et_putXMin);
-        xMax = (EditText) view.findViewById(R.id.et_putXMax);
-        yMin = (EditText) view.findViewById(R.id.et_putYMin);
-        yMax = (EditText) view.findViewById(R.id.et_putYMax);
-        time = (EditText) view.findViewById(R.id.et_time);
+        xMin = view.findViewById(R.id.et_putXMin);
+        xMax = view.findViewById(R.id.et_putXMax);
+        yMin = view.findViewById(R.id.et_putYMin);
+        yMax = view.findViewById(R.id.et_putYMax);
+        time = view.findViewById(R.id.et_time);
 
         radioGroup.setOnCheckedChangeListener(this);
         sure.setOnClickListener(this);
@@ -61,7 +61,7 @@ public class AlarmDialog extends BDialog implements View.OnClickListener, RadioG
     @Override
     public void onClick(View view) {
         int i = view.getId();
-        if (i == R.id.bt_save) {
+        if (i == R.id.bt_ok) {
             strXMin = xMin.getText().toString();
             strXMax = xMax.getText().toString();
             strYMin = yMin.getText().toString();
@@ -95,7 +95,7 @@ public class AlarmDialog extends BDialog implements View.OnClickListener, RadioG
                 policeDialogCallBack.save(strXMin, strXMax, strYMin, strYMax, strTime, tag);
             }
             dismiss();
-        } else if (i == R.id.bt_abolish) {
+        } else if (i == R.id.bt_cancel) {
             if (policeDialogCallBack != null) {
                 policeDialogCallBack.back();
             }

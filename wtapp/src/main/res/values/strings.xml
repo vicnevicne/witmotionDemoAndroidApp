@@ -1,9 +1,0 @@
-<resources>
-    <string name="app_name">WTApp</string>
-
-    <string name="JY31">3-axis Series</string>
-    <string name="JY61">6-axis Series</string>
-    <string name="JY901">9-axis Series</string>
-    <string name="JY901BLE">9-axis BLE 5.0 Series</string>
-    <string name="select_app">Select Module Type</string>
-</resources>

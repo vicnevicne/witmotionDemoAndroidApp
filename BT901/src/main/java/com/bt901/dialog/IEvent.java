@@ -4,8 +4,6 @@ public interface IEvent {
 
     /**
      * event type
-     *
-     * @return
      */
     String getEventType();
 
@@ -13,8 +11,6 @@ public interface IEvent {
 
     /**
      * event data
-     *
-     * @return
      */
     Object getData();
 

@@ -13,7 +13,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/call_the_police"
+        android:text="@string/alarm"
         android:textColor="@color/black"
         android:textSize="20sp" />
 
@@ -27,7 +27,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/Minimum_value_of_X_axis"
+            android:text="@string/X_axis_minimum"
             android:textColor="@color/black"
             android:textSize="16sp" />
 
@@ -83,7 +83,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/Minimum_value_of_Y_axis"
+            android:text="@string/Y_axis_minimum"
             android:textColor="@color/black"
             android:textSize="16sp" />
 
@@ -141,7 +141,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:text="@string/KeepTime"
+            android:text="@string/keep_time"
             android:textColor="@color/black"
             android:textSize="16sp" />
 
@@ -150,7 +150,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/circle_corner_button"
-            android:hint="@string/Company"
+            android:hint="@string/unit_ms"
             android:inputType="number"
             android:maxLength="10"
             android:singleLine="true"
@@ -193,15 +193,15 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/bt_abolish"
+            android:id="@+id/bt_cancel"
             android:layout_width="100dp"
             android:layout_height="40dp"
             android:background="@drawable/button_gray"
-            android:text="@string/abolish"
+            android:text="@string/cancel"
             android:textColor="@color/white" />
 
         <Button
-            android:id="@+id/bt_save"
+            android:id="@+id/bt_ok"
             android:layout_width="100dp"
             android:layout_height="40dp"
             android:layout_marginLeft="50dp"

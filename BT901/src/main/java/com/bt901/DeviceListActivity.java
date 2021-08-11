@@ -107,8 +107,8 @@ public class DeviceListActivity extends Activity {
                 }
             }
         } else {
-        String noDevices = getResources().getText(R.string.none_paired).toString();
-        mPairedDevicesArrayAdapter.add(noDevices);
+            String noDevices = getResources().getText(R.string.none_paired).toString();
+            mPairedDevicesArrayAdapter.add(noDevices);
         }
     }
 
@@ -210,11 +210,11 @@ public class DeviceListActivity extends Activity {
                         return;
                     }
                     if ((DeviceNameFilter.contains(device.getName()))||(device.getName()==null)){
-                            Log.e("--", "device=" + device.getName() + "--" + device.getAddress());
-                            mNewDevicesArrayAdapter.add(device.getName() + "(" + rssi + "db)" + "\n" + device.getAddress());
-                            DeviceList.add(device.getAddress());
+                        Log.e("--", "device=" + device.getName() + "--" + device.getAddress());
+                        mNewDevicesArrayAdapter.add(device.getName() + "(" + rssi + "db)" + "\n" + device.getAddress());
+                        DeviceList.add(device.getAddress());
                     }
-                  //  }
+                    //  }
 
 //                    if (device.getName()!=null) {
 //                        if (DeviceNameFilter.contains(device.getName())){

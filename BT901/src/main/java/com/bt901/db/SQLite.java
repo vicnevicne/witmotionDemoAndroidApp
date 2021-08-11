@@ -17,8 +17,8 @@ import java.io.ByteArrayOutputStream;
  */
 public class SQLite {
 
-    public static final String DB_ACTION = "db_action";//LogCat
-    private static final String DB_NAME = "BD001.db";//
+    public static final String DB_ACTION = "db_action"; //LogCat
+    private static final String DB_NAME = "BD001.db";
     private static final int DB_VERSION = 1;
     private static SQLite mDBAdapter;
     private static Context xContext;
@@ -61,8 +61,7 @@ public class SQLite {
         if (data == null || data.length == 0) {
             return null;
         }
-        Bitmap bmpout = BitmapFactory.decodeByteArray(data, 0, data.length);
-        return bmpout;
+        return BitmapFactory.decodeByteArray(data, 0, data.length);
     }
 
     public long insert(String table, ContentValues newValues) {

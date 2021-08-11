@@ -1,6 +1,7 @@
 package com.bt901;
 
 import android.os.Handler;
+import android.os.Looper;
 import android.os.Message;
 import android.util.Log;
 
@@ -8,7 +9,6 @@ import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.components.AxisBase;
 import com.github.mikephil.charting.components.Description;
 import com.github.mikephil.charting.components.Legend;
-import com.github.mikephil.charting.components.LimitLine;
 import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.data.Entry;
@@ -24,30 +24,29 @@ import java.util.List;
  * Created by 葛文博 on 2017/10/16.
  */
 public class LineChartManager {
-    private LineChart lineChart;
-    private YAxis leftAxis;
-    private YAxis rightAxis;
-    private XAxis xAxis;
+    public static final String TAG = LineChartManager.class.getName();
+    private final LineChart lineChart;
+    private final YAxis leftAxis;
+    private final XAxis xAxis;
     private LineData lineData;
     private LineDataSet lineDataSet;
-    private List<ILineDataSet> lineDataSets = new ArrayList<>();
-    private List<String> timeList = new ArrayList<>(); //存储x轴的时间
+    private final List<ILineDataSet> lineDataSets = new ArrayList<>();
+    private final List<String> timeList = new ArrayList<>(); // Store the time of the x-axis
     private int times = 1;
-    private int iPointCnts = 100;
+    private int iPointCnts;
 
 
-    //多条曲线
+    // Multiple charts
     public LineChartManager(LineChart mLineChart, List<String> names, List<Integer> colors) {
         this.lineChart = mLineChart;
         leftAxis = lineChart.getAxisLeft();
-        rightAxis = lineChart.getAxisRight();
         xAxis = lineChart.getXAxis();
         lineDataSets.clear();
         timeList.clear();
         initLineChart();
         initLineDataSet(names, colors);
         iPointCnts = 100;
-        Log.e("---", "LineChartManager");
+        Log.i(TAG, "Initialized.");
     }
 
     /**
@@ -57,18 +56,17 @@ public class LineChartManager {
         lineChart.setTouchEnabled(true);
         lineChart.setDrawGridBackground(false);
         lineChart.setDrawBorders(true);
-        //折线图例 标签 设置
+        // Line legend label settings
         Legend legend = lineChart.getLegend();
         legend.setForm(Legend.LegendForm.LINE);
         legend.setTextSize(11f);
-        //显示位置
+        // Display position
         legend.setVerticalAlignment(Legend.LegendVerticalAlignment.BOTTOM);
         legend.setHorizontalAlignment(Legend.LegendHorizontalAlignment.LEFT);
         legend.setOrientation(Legend.LegendOrientation.HORIZONTAL);
         legend.setDrawInside(false);
 
-        //X轴设置显示位置在底部
-//        xAxis.setEnabled(false);
+        // X axis position is at the bottom
         xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
         xAxis.setGranularity(1f);
         xAxis.setLabelCount(10);
@@ -78,25 +76,20 @@ public class LineChartManager {
                 int i = (int) (v % timeList.size());
                 if (i <= 0) {
                     return "";
-                } else {
+                }
+                else {
                     return timeList.get((int) v % timeList.size());
                 }
             }
         });
 
-
-        //保证Y轴从0开始，不然会上移一点
-        leftAxis.setStartAtZero(false);
-//        leftAxis.setAxisMinimum(0f);
-//        rightAxis.setAxisMinimum(0f);
+        leftAxis.resetAxisMinimum();
     }
 
 
     /**
-     * 初始化折线（多条线）
+     * Initialize polyline (multiple lines)
      *
-     * @param names
-     * @param colors
      */
     public void initLineDataSet(List<String> names, List<Integer> colors) {
         for (int i = 0; i < names.size(); i++) {
@@ -117,7 +110,7 @@ public class LineChartManager {
             lineDataSets.add(lineDataSet);
 
         }
-        //添加一个空的 LineData
+        // Add an empty LineData
         lineData = new LineData();
         lineChart.setData(lineData);
         lineChart.invalidate();
@@ -125,24 +118,23 @@ public class LineChartManager {
 
 
     /**
-     * 动态添加数据（多条折线图）
-     *
-     * @param numbers
+     * Dynamically add data (multiple line graphs)
      */
     long lTimeStart = System.currentTimeMillis();
     long lTimeLast = System.currentTimeMillis();
 
     private boolean bPause = false;
-    public void setbPause(boolean b){
+
+    public void setbPause(boolean b) {
         bPause = b;
     }
 
     public void addEntry(List<Float> numbers) {
         if (bPause) return;
-       // if ((System.currentTimeMillis() - lTimeLast)<500) return;
+
         lTimeLast = System.currentTimeMillis();
 
-        if(lineDataSets.size()!=numbers.size())  return;
+        if (lineDataSets.size() != numbers.size()) return;
         if (lineDataSets.get(0).getEntryCount() == 0) {
             lineData = new LineData(lineDataSets);
             lineChart.setData(lineData);
@@ -151,16 +143,16 @@ public class LineChartManager {
             timeList.clear();
         }
         timeList.add(String.format("%.1f", (float) (System.currentTimeMillis() - lTimeStart) / 1000.0));
-        if ((System.currentTimeMillis() - lTimeLast)>10000){
+        if ((System.currentTimeMillis() - lTimeLast) > 10000) {
 
             lineChart.setVisibleXRangeMaximum(iPointCnts);
-            Log.e("x",String.format("cnts:%d ",iPointCnts));
+            Log.e("x", String.format("cnts:%d ", iPointCnts));
             iPointCnts = 0;
             lTimeLast = System.currentTimeMillis();
         }
         for (int i = 0; i < numbers.size(); i++) {
-                Entry entry = new Entry(lineDataSet.getEntryCount(), numbers.get(i));
-                lineData.addEntry(entry, i);
+            Entry entry = new Entry(lineDataSet.getEntryCount(), numbers.get(i));
+            lineData.addEntry(entry, i);
         }
         lineData.notifyDataChanged();
         lineChart.notifyDataSetChanged();
@@ -170,72 +162,8 @@ public class LineChartManager {
         lineChart.setVisibleXRangeMaximum(100);
     }
 
-
-    public void startTimer() {
-
-    }
-
     /**
-     * 设置Y轴值
-     *
-     * @param max
-     * @param min
-     * @param labelCount
-     */
-    public void setYAxis(float max, float min, int labelCount) {
-        if (max < min) {
-            return;
-        }
-        leftAxis.setAxisMaximum(max);
-        leftAxis.setAxisMinimum(min);
-        leftAxis.setLabelCount(labelCount, false);
-
-        rightAxis.setAxisMaximum(max);
-        rightAxis.setAxisMinimum(min);
-        rightAxis.setLabelCount(labelCount, false);
-        lineChart.invalidate();
-    }
-
-    /**
-     * 设置高限制线
-     *
-     * @param high
-     * @param name
-     */
-    public void setHightLimitLine(float high, String name, int color) {
-        if (name == null) {
-            name = "高限制线";
-        }
-        LimitLine hightLimit = new LimitLine(high, name);
-        hightLimit.setLineWidth(4f);
-        hightLimit.setTextSize(10f);
-        hightLimit.setLineColor(color);
-        hightLimit.setTextColor(color);
-        leftAxis.addLimitLine(hightLimit);
-        lineChart.invalidate();
-    }
-
-    /**
-     * 设置低限制线
-     *
-     * @param low
-     * @param name
-     */
-    public void setLowLimitLine(int low, String name) {
-        if (name == null) {
-            name = "低限制线";
-        }
-        LimitLine hightLimit = new LimitLine(low, name);
-        hightLimit.setLineWidth(4f);
-        hightLimit.setTextSize(10f);
-        leftAxis.addLimitLine(hightLimit);
-        lineChart.invalidate();
-    }
-
-    /**
-     * 设置描述信息
-     *
-     * @param str
+     * Set description information
      */
     public void setDescription(String str) {
         Description description = new Description();
@@ -245,15 +173,7 @@ public class LineChartManager {
     }
 
 
-    /**
-     * 清除图上的数据
-     */
-    public void clearLineData() {
-        lineChart.clear();
-    }
-
-
-    public Handler handler = new Handler() {
+    public Handler handler = new Handler(Looper.getMainLooper()) {
         @Override
         public void handleMessage(Message msg) {
             switch (msg.what) {

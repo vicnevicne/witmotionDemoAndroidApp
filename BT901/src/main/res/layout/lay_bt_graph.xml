@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical">
@@ -35,7 +34,7 @@
                 android:layout_margin="5dp"
                 android:layout_weight="2"
                 android:gravity="center"
-                android:text="AngleX:"
+                android:text="@string/anglex"
                 android:textSize="18sp" />
 
             <View
@@ -48,8 +47,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:gravity="right|center"
-                android:paddingRight="20dp"
+                android:gravity="end|center"
+                android:paddingEnd="20dp"
                 android:text="0.0"
                 android:textSize="18sp" />
         </LinearLayout>
@@ -72,7 +71,7 @@
                 android:layout_margin="5dp"
                 android:layout_weight="2"
                 android:gravity="center"
-                android:text="AngleY:"
+                android:text="@string/angley"
                 android:textSize="18sp"/>
 
             <View
@@ -85,8 +84,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:gravity="right|center"
-                android:paddingRight="20dp"
+                android:gravity="end|center"
+                android:paddingEnd="20dp"
                 android:text="0.0"
                 android:textSize="18sp" />
         </LinearLayout>
@@ -109,7 +108,7 @@
                 android:layout_margin="5dp"
                 android:layout_weight="2"
                 android:gravity="center"
-                android:text="AngleZ:"
+                android:text="@string/anglez"
                 android:textSize="18sp" />
 
             <View
@@ -122,8 +121,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:gravity="right|center"
-                android:paddingRight="20dp"
+                android:gravity="end|center"
+                android:paddingEnd="20dp"
                 android:text="0.0"
                 android:textSize="18sp" />
         </LinearLayout>
@@ -141,13 +140,13 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/All"
+                android:id="@+id/all"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="5dp"
                 android:layout_weight="2"
                 android:gravity="center"
-                android:text="T:"
+                android:text="@string/t"
                 android:textSize="18sp" />
 
             <View
@@ -160,8 +159,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:gravity="right|center"
-                android:paddingRight="20dp"
+                android:gravity="end|center"
+                android:paddingEnd="20dp"
                 android:text="0.0"
                 android:textSize="18sp" />
         </LinearLayout>

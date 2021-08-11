@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string name="app_name">WTApp</string>
-    <string name="JY31">三轴系列</string>
-    <string name="JY61">六轴系列</string>
-    <string name="JY901">六轴增强/9轴系列</string>
-    <string name="JY901BLE">WT901BLE蓝牙系列</string>
-    <string name="select_app">请选择模块类型</string>
-</resources>
